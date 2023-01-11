@@ -8,7 +8,7 @@ import TopButtons from "./components/TopButtons";
 import getFormattedWeatherData from "./Services/weatherService";
 
 function App() {
-  const [query, setQuery] = useState({ q: "berlin" });
+  const [query, setQuery] = useState({ q: "tokyo" });
   const [units, setUnit] = useState("metric");
   const [weather, setWeather] = useState(null);
 
@@ -28,8 +28,8 @@ function App() {
       <Inputs />
       {weather && (
         <div>
-          <TimeAndLocation />
-          <TemperatureAndDetails />
+          <TimeAndLocation weather={weather} />
+          <TemperatureAndDetails weather={weather} />
 
           <Forecast title="hourly forecast" />
           <Forecast title="daily forecast" />
