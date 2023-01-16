@@ -24,15 +24,15 @@ function App() {
 
   return (
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
-      <TopButtons />
-      <Inputs />
+      <TopButtons setQuery={setQuery} />
+      <Inputs setQuery units setUnit/>
       {weather && (
         <div>
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
 
-          <Forecast title="hourly forecast" />
-          <Forecast title="daily forecast" />
+          <Forecast title="hourly forecast" items={weather.hourly} />
+          <Forecast title="daily forecast" items={weather.daily} />
         </div>
       )}
     </div>
