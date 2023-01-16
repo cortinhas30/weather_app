@@ -4,6 +4,11 @@ import { UilSearch, UilLocationPoint } from "@iconscout/react-unicons";
 function Inputs({ setQuery, units, setUnits }) {
   const [city, setCity] = useState("");
 
+  const handleUnitsChange = (e) => {
+    const selectedUnits = e.currentTarget.name;
+    if(units !== selectedUnits) setUnits(selectedUnits);
+  }
+
   const handleSearchClick = () => {
     if (city !== "") setQuery({ q: city });
   };
@@ -44,6 +49,7 @@ function Inputs({ setQuery, units, setUnits }) {
         <button
           name="metric"
           className="text-xl text-white font-light transition ease-out hover:scale-125"
+          onClick={handleUnitsChange}
         >
           °C
         </button>
@@ -51,6 +57,7 @@ function Inputs({ setQuery, units, setUnits }) {
         <button
           name="imperial"
           className="text-xl text-white font-light transition ease-out hover:scale-125"
+          onClick={handleUnitsChange}
         >
           °F
         </button>
